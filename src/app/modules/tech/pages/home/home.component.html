@@ -1,0 +1,81 @@
+<!-- ? MAIN CONTAINER -->
+<div class="container d-flex flex-column gap-5">
+    <!-- Iteration -->
+    <div *ngFor="let item of products"      
+        infiniteScroll
+        [infiniteScrollDistance]="2"
+        [infiniteScrollThrottle]="20"
+        (scrolled)="onScroll()">
+        <!-- ? ROW 1 | CARD | SUMMARY | POST-->
+        <div class="row d-flex justify-content-center mb-3">
+            <!-- ? CARD CONTAINER -->
+            <div class="col-12 col-lg-3 d-flex justify-content-center">
+                <img class="img_product shadow" [src]="'../../../../../assets/games/' + item.img + '.jpg'">
+            </div>
+    
+            <!-- ? SUMMARY & POSTS -->
+            <div class="col-12 col-lg-9">
+                <!-- ? SUMMARY CONTAINER-->
+                <div class="row">
+                    <div class="text-center text-lg-start col-12 col-lg-9 order-2 order-lg-1 d-flex justify-content-center fs-5 flex-column">
+                        <p class="fw-bold"> {{item.summary}} </p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt reprehenderit enim modi exercitationem adipisci blanditiis?</p>
+                    </div>
+        
+                    <!-- ? POST CONTAINER -->
+                    <div class="col-12 col-lg-3 order-1 order-lg-2">
+                        <div class="row">
+                            <!-- ? USER SCORE -->
+                            <div class="d-flex justify-content-center align-items-center gap-2">
+                                <!-- USER -->
+                                <p class="fw-bold text-primary"> {{item.user}} </p>
+                                <!-- SCORE -->
+                                <app-stars [score]="item.score" ></app-stars>({{item.score}})
+                            </div>
+                            <!-- ? DATE -->
+                            <div class="d-flex justify-content-center align-items-center gap-2 ">
+                                <!-- ICON CALENDAR -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                                </svg>
+                                <!-- DATE -->
+                                <p class="fw-light" > {{item.date | date : 'medium'}} </p>
+                            </div>
+    
+                        </div>
+                        
+                    </div>
+                </div>
+    
+            </div>
+    
+        </div>
+        <!-- ? ROW 2 | ASSIGNESS | WORKFLOW | REVIEW-->
+        <div class="row">
+            <!-- ? ASSIGNES -->
+            <div class="col-12 col-lg-2 d-flex justify-content-center text-center flex-column order-3 order-lg-1">
+                <p class="fw-bold"> Assignees </p>
+                <p class="fw-bold text-primary"> Assignees </p>
+            </div>
+    
+            <!-- ? WORKFLOW -->
+            <div class="col-12 col-lg-2 d-flex justify-content-center text-center flex-column order-2 order-lg-2">
+                <p class="fw-bold"> Workflow 
+                    <!-- Icon Pencil -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                    </svg>
+                </p>
+                <p class="fw-bold text-primary"> Workflow </p>
+            </div>
+    
+            <!-- ? REVIEW -->
+            <div class="col-12 col-lg-2 d-flex justify-content-center text-center align-items-center flex-column order-1 order-lg-3">
+                <p class="fw-bold">Review Score</p>
+                <p class="fw-bold text-primary review_score rounded-pill d-flex text-light"> --- </p>
+            </div>
+    
+        </div>
+
+    </div>
+</div>

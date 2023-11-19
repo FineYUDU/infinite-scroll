@@ -1,0 +1,15 @@
+/* * IMG CONTAINER */
+.img_product {
+    width: auto;
+    height: 30em;
+}
+/* * ICON CALENDAR */
+.icon_ {
+    width: 16px;
+    height: 16px;
+}
+.review_score {
+    background-color: #eea842;
+    width: fit-content;
+    padding-inline: 10px;
+}
