@@ -19,11 +19,6 @@ export interface ProductsMenu {
 export class HomeComponent {
   
   constructor() { }
-  
-  // ? Scroll Method
-  onScroll() {
-    console.log('scrolled');
-  }
 
   // * Products
   products:ProductsMenu[]  = [

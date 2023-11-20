@@ -1,11 +1,7 @@
 <!-- ? MAIN CONTAINER -->
 <div class="container d-flex flex-column gap-5">
     <!-- Iteration -->
-    <div *ngFor="let item of products"      
-        infiniteScroll
-        [infiniteScrollDistance]="2"
-        [infiniteScrollThrottle]="20"
-        (scrolled)="onScroll()">
+    <div *ngFor="let item of products">
         <!-- ? ROW 1 | CARD | SUMMARY | POST-->
         <div class="row d-flex justify-content-center mb-3">
             <!-- ? CARD CONTAINER -->
