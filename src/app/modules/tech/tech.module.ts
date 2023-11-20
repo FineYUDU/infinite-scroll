@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // * Services
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 // * Routing
 import { TechRoutingModule } from './tech.routing';
 // * Components
@@ -19,6 +20,7 @@ import { StarsComponent } from './components/stars/stars.component';
   imports: [
     CommonModule,
     TechRoutingModule,
+    InfiniteScrollModule 
   ]
 })
 export class TechModule { }

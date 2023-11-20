@@ -19,305 +19,104 @@ export interface ProductsMenu {
 export class HomeComponent {
   
   constructor() { }
+  // * Loading control
+  isLoading = false;
+
+  onScrollDown() {
+    if (this.isLoading) {
+      return;
+    }
+
+    // * Container height
+    const visibleHeight = document.documentElement.clientHeight;
+
+    // * Total height container 
+    const totalHeight = document.documentElement.scrollHeight;
+
+    // * Position
+    const scrollPosition = window.scrollY || window.pageYOffset || document.body.scrollTop + (document.documentElement && document.documentElement.scrollTop || 0);
+
+    // * Reference position to load more elements
+    const referencePosition = 0.0* totalHeight;
+
+    if (scrollPosition > referencePosition) {
+      console.log('Load more components!');
+      
+      // * Activate load
+      this.isLoading = true;
+
+      const length = this.products.length;
+
+      setTimeout(() => {
+        const p: any = ' '.repeat(1).split('').map((s, i) => i + 1 + length);
+        if (p.length > 0) {
+          // * Load only one element
+          this.products.push({
+            img: 'mario_wonder',
+            user: `User${this.products.length + 1}`,
+            score: Math.floor(Math.random() * 5) + 1,
+            date: new Date(),
+            summary: 'Placeholder Summary',
+            review: '',
+            workflow: '',
+            assignees: ''
+          });
+        }
+        this.isLoading = false;
+      }, 500);
+    }
+  }
+
+
 
   // * Products
   products:ProductsMenu[]  = [
     {
       img:'mario_wonder',
-      user:'Erick123',
+      user:'Erick1',
       score:4.5,
       date:new Date(2023,3,12,11,10,0),
       summary:'Super Mario Bros Wonder',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'mario_kart',
-      user:'Luis123',
-      score:3.5,
-      date:new Date(2023,5,2,15,0,0),
-      summary:'Mario Kart Deluxe',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'mario_party',
-      user:'Georgie123',
-      score:2,
-      date:new Date(2023,10,2,10,50,0),
-      summary:'Mario Party Superstars',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'smash_bros',
-      user:'Alan123',
-      score:5,
-      date:new Date(2023,3,12),
-      summary:'Super Smash bros Ultimate',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'mario_delux',
-      user:'Juan123',
-      score:3,
-      date:new Date(2023,7,12,18,10,20),
-      summary:'Super Mario Bros Delux',
       review:'',
       workflow:'',
       assignees:''
     },
     {
       img:'mario_wonder',
-      user:'Erick123',
+      user:'Erick2',
       score:4.5,
       date:new Date(2023,3,12,11,10,0),
       summary:'Super Mario Bros Wonder',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'mario_kart',
-      user:'Luis123',
-      score:3.5,
-      date:new Date(2023,5,2,15,0,0),
-      summary:'Mario Kart Deluxe',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'mario_party',
-      user:'Georgie123',
-      score:2,
-      date:new Date(2023,10,2,10,50,0),
-      summary:'Mario Party Superstars',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'smash_bros',
-      user:'Alan123',
-      score:5,
-      date:new Date(2023,3,12),
-      summary:'Super Smash bros Ultimate',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'mario_delux',
-      user:'Juan123',
-      score:3,
-      date:new Date(2023,7,12,18,10,20),
-      summary:'Super Mario Bros Delux',
       review:'',
       workflow:'',
       assignees:''
     },
     {
       img:'mario_wonder',
-      user:'Erick123',
+      user:'Erick3',
       score:4.5,
       date:new Date(2023,3,12,11,10,0),
       summary:'Super Mario Bros Wonder',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'mario_kart',
-      user:'Luis123',
-      score:3.5,
-      date:new Date(2023,5,2,15,0,0),
-      summary:'Mario Kart Deluxe',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'mario_party',
-      user:'Georgie123',
-      score:2,
-      date:new Date(2023,10,2,10,50,0),
-      summary:'Mario Party Superstars',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'smash_bros',
-      user:'Alan123',
-      score:5,
-      date:new Date(2023,3,12),
-      summary:'Super Smash bros Ultimate',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'mario_delux',
-      user:'Juan123',
-      score:3,
-      date:new Date(2023,7,12,18,10,20),
-      summary:'Super Mario Bros Delux',
       review:'',
       workflow:'',
       assignees:''
     },
     {
       img:'mario_wonder',
-      user:'Erick123',
+      user:'Erick4',
       score:4.5,
       date:new Date(2023,3,12,11,10,0),
       summary:'Super Mario Bros Wonder',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'mario_kart',
-      user:'Luis123',
-      score:3.5,
-      date:new Date(2023,5,2,15,0,0),
-      summary:'Mario Kart Deluxe',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'mario_party',
-      user:'Georgie123',
-      score:2,
-      date:new Date(2023,10,2,10,50,0),
-      summary:'Mario Party Superstars',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'smash_bros',
-      user:'Alan123',
-      score:5,
-      date:new Date(2023,3,12),
-      summary:'Super Smash bros Ultimate',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'mario_delux',
-      user:'Juan123',
-      score:3,
-      date:new Date(2023,7,12,18,10,20),
-      summary:'Super Mario Bros Delux',
       review:'',
       workflow:'',
       assignees:''
     },
     {
       img:'mario_wonder',
-      user:'Erick123',
+      user:'Erick5',
       score:4.5,
       date:new Date(2023,3,12,11,10,0),
       summary:'Super Mario Bros Wonder',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'mario_kart',
-      user:'Luis123',
-      score:3.5,
-      date:new Date(2023,5,2,15,0,0),
-      summary:'Mario Kart Deluxe',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'mario_party',
-      user:'Georgie123',
-      score:2,
-      date:new Date(2023,10,2,10,50,0),
-      summary:'Mario Party Superstars',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'smash_bros',
-      user:'Alan123',
-      score:5,
-      date:new Date(2023,3,12),
-      summary:'Super Smash bros Ultimate',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'mario_delux',
-      user:'Juan123',
-      score:3,
-      date:new Date(2023,7,12,18,10,20),
-      summary:'Super Mario Bros Delux',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'mario_wonder',
-      user:'Erick123',
-      score:4.5,
-      date:new Date(2023,3,12,11,10,0),
-      summary:'Super Mario Bros Wonder',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'mario_kart',
-      user:'Luis123',
-      score:3.5,
-      date:new Date(2023,5,2,15,0,0),
-      summary:'Mario Kart Deluxe',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'mario_party',
-      user:'Georgie123',
-      score:2,
-      date:new Date(2023,10,2,10,50,0),
-      summary:'Mario Party Superstars',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'smash_bros',
-      user:'Alan123',
-      score:5,
-      date:new Date(2023,3,12),
-      summary:'Super Smash bros Ultimate',
-      review:'',
-      workflow:'',
-      assignees:''
-    },
-    {
-      img:'mario_delux',
-      user:'Juan123',
-      score:3,
-      date:new Date(2023,7,12,18,10,20),
-      summary:'Super Mario Bros Delux',
       review:'',
       workflow:'',
       assignees:''
